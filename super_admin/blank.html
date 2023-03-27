@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta5
+* @link https://tabler.io
+* Copyright 2018-2022 The Tabler Authors
+* Copyright 2018-2022 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+      Blank page - Tabler - Premium and Open Source dashboard template with
+      responsive and high quality UI.
+    </title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css" rel="stylesheet" />
+    <link href="./dist/css/tabler-flags.min.css" rel="stylesheet" />
+    <link href="./dist/css/tabler-payments.min.css" rel="stylesheet" />
+    <link href="./dist/css/tabler-vendors.min.css" rel="stylesheet" />
+    <link href="./dist/css/demo.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="navbar navbar-expand-md navbar-light d-print-none">
+        <div class="container-xl">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-menu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1
+            class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3"
+          >
+            <a href=".">
+              <img
+                src="./static/logo.svg"
+                width="110"
+                height="32"
+                alt="Tabler"
+                class="navbar-brand-image"
+              />
+            </a>
+          </h1>
+          <div class="navbar-nav flex-row order-md-last">
+            <a
+              href="?theme=dark"
+              class="nav-link px-0 hide-theme-dark"
+              title="Enable dark mode"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+            >
+              <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+                />
+              </svg>
+            </a>
+            <a
+              href="?theme=light"
+              class="nav-link px-0 hide-theme-light"
+              title="Enable light mode"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+            >
+              <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+                />
+              </svg>
+            </a>
+            <div class="nav-item dropdown d-none d-md-flex me-3">
+              <a
+                href="#"
+                class="nav-link px-0"
+                data-bs-toggle="dropdown"
+                tabindex="-1"
+                aria-label="Show notifications"
+              >
+                <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"
+                  />
+                  <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                </svg>
+                <span class="badge bg-red"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-card">
+                <div class="card">
+                  <div class="card-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Accusamus ad amet consectetur exercitationem fugiat in ipsa
+                    ipsum, natus odio quidem quod repudiandae sapiente. Amet
+                    debitis et magni maxime necessitatibus ullam.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link d-flex lh-1 text-reset p-0"
+                data-bs-toggle="dropdown"
+                aria-label="Open user menu"
+              >
+                <span
+                  class="avatar avatar-sm"
+                  style="background-image: url(./static/avatars/000m.jpg)"
+                ></span>
+                <div class="d-none d-xl-block ps-2">
+                  <div>Paweł Kuna</div>
+                  <div class="mt-1 small text-muted">UI Designer</div>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <a href="#" class="dropdown-item">Profile & account</a>
+                <a href="#" class="dropdown-item">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="navbar-expand-md">
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <div class="navbar navbar-light">
+            <div class="container-xl">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="./index.html">
+                    <span
+                      class="nav-link-icon d-md-none d-lg-inline-block"
+                    ></span>
+                    <span class="nav-link-title"> Home </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./index.html">
+                    <span
+                      class="nav-link-icon d-md-none d-lg-inline-block"
+                    ></span>
+                    <span class="nav-link-title"> Home </span>
+                  </a>
+                </li>
+              </ul>
+              <div
+                class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last"
+              >
+                <form action="." method="get">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <circle cx="10" cy="10" r="7" />
+                        <line x1="21" y1="21" x2="15" y2="15" />
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search…"
+                      aria-label="Search in website"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ------------ISI KONTEN -------------------- -->
+      <div class="page-wrapper">
+        <!-- --------------TOP----------------- -->
+        <div class="container-xl">
+          <!-- Page title -->
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">Overview</div>
+                <h2 class="page-title">Dashboard</h2>
+              </div>
+              <!-- Page title actions -->
+              <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                  <span class="d-none d-sm-inline">
+                    <!-- <a href="#" class="btn btn-white"> New view </a> -->
+                  </span>
+                  <a
+                    href="#"
+                    class="btn btn-primary d-none d-sm-inline-block"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modal-report"
+                  >
+                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Buat laporan
+                  </a>
+                  <a
+                    href="#"
+                    class="btn btn-primary d-sm-none btn-icon"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modal-report"
+                    aria-label="Create new report"
+                  >
+                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------TOP END----------------- -->
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <!-- -------------CARD-------------- -->
+              <div class="col-md-6 col-xl-3">
+                <div class="card card-sm">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <span class="bg-success text-white avatar"
+                          ><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              stroke="none"
+                              d="M0 0h24v24H0z"
+                              fill="none"
+                            ></path>
+                            <path
+                              d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"
+                            ></path>
+                            <path d="M12 3v3m0 12v3"></path>
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <div class="font-weight-medium text-success">
+                          Rp 5000
+                        </div>
+                        <div class="text-muted">Total pendapatan</div>
+                      </div>
+                    </div>
+                    <div class="col mt-2">
+                      <a href="#" class="btn btn-success w-100 btn-sm"
+                        >Selengkapnya</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -------------CARD---------------->
+
+              <!-- -------------CARD---------------->
+              <div class="col-md-6 col-xl-3">
+                <div class="card card-sm">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <span class="bg-primary text-white avatar"
+                          ><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              stroke="none"
+                              d="M0 0h24v24H0z"
+                              fill="none"
+                            ></path>
+                            <circle cx="6" cy="19" r="2"></circle>
+                            <circle cx="17" cy="19" r="2"></circle>
+                            <path d="M17 17h-11v-14h-2"></path>
+                            <path d="M6 5l14 1l-1 7h-13"></path>
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <div class="font-weight-medium">78 Orders</div>
+                        <div class="text-muted">32 Selesai</div>
+                      </div>
+                    </div>
+                    <div class="col mt-2">
+                      <a href="#" class="btn btn-primary w-100 btn-sm"
+                        >Selengkapnya</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -------------CARD---------------->
+
+              <!-- -------------CARD---------------->
+              <div class="col-md-6 col-xl-3">
+                <div class="card card-sm">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <span class="bg-red text-white avatar"
+                          ><!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              stroke="none"
+                              d="M0 0h24v24H0z"
+                              fill="none"
+                            ></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path
+                              d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
+                            ></path>
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <div class="font-weight-medium">1352 Pengguna</div>
+                        <div class="text-muted">163 bergabung hari ini</div>
+                      </div>
+                    </div>
+                    <div class="col mt-2">
+                      <a href="#" class="btn btn-danger w-100 btn-sm"
+                        >Selengkapnya</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -------------CARD---------------->
+
+              <!-- -------------CARD---------------->
+              <div class="col-md-6 col-xl-3">
+                <div class="card card-sm">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <span class="bg-yellow text-white avatar"
+                          ><!-- Download SVG icon from http://tabler-icons.io/i/message -->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              stroke="none"
+                              d="M0 0h24v24H0z"
+                              fill="none"
+                            ></path>
+                            <path
+                              d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"
+                            ></path>
+                            <line x1="8" y1="9" x2="16" y2="9"></line>
+                            <line x1="8" y1="13" x2="14" y2="13"></line>
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <div class="font-weight-medium">132 Produk</div>
+                        <div class="text-muted">16 Didaftarkan hari ini</div>
+                      </div>
+                    </div>
+                    <div class="col mt-2">
+                      <a href="#" class="btn btn-yellow w-100 btn-sm"
+                        >Selengkapnya</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -------------CARD---------------->
+            </div>
+          </div>
+
+          <div class="container-xl d-flex flex-column justify-content-center">
+            <hr />
+
+            <div class="col">
+              <!-- Page pre-title -->
+              <div class="page-pretitle">TABLE DATA</div>
+              <h2 class="page-title">Transaksi</h2>
+            </div>
+
+            <div class="my-2"></div>
+            <!-- -------------TABLE-------------- -->
+            <div class="card">
+              <div class="table-responsive">
+                <table class="table table-vcenter card-table">
+                  <thead>
+                    <tr>
+                      <th>ID Pesanan</th>
+                      <th>ID User</th>
+                      <th>Lokasi</th>
+                      <th>Produk</th>
+                      <th>Total produk</th>
+                      <th>Biaya Pengiriman</th>
+                      <th>Total Harga</th>
+                      <th>Waktu Pemesanan</th>
+                      <th>Status</th>
+                      <th class="w-1">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Paweł Kuna</td>
+                      <td class="text-muted">UI Designer, Training</td>
+                      <td class="text-muted">
+                        <a href="#" class="text-reset"
+                          >paweluna@howstuffworks.com</a
+                        >
+                      </td>
+                      <td class="text-muted">User</td>
+                      <td>
+                        <a href="#">Edit</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jeffie Lewzey</td>
+                      <td class="text-muted">Chemical Engineer, Support</td>
+                      <td class="text-muted">
+                        <a href="#" class="text-reset">jlewzey1@seesaa.net</a>
+                      </td>
+                      <td class="text-muted">Admin</td>
+                      <td>
+                        <a href="#">Edit</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Mallory Hulme</td>
+                      <td class="text-muted">Geologist IV, Support</td>
+                      <td class="text-muted">
+                        <a href="#" class="text-reset"
+                          >mhulme2@domainmarket.com</a
+                        >
+                      </td>
+                      <td class="text-muted">User</td>
+                      <td>
+                        <a href="#">Edit</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dunn Slane</td>
+                      <td class="text-muted">Research Nurse, Sales</td>
+                      <td class="text-muted">
+                        <a href="#" class="text-reset">dslane3@epa.gov</a>
+                      </td>
+                      <td class="text-muted">Owner</td>
+                      <td>
+                        <a href="#">Edit</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Emmy Levet</td>
+                      <td class="text-muted">
+                        VP Product Management, Accounting
+                      </td>
+                      <td class="text-muted">
+                        <a href="#" class="text-reset">elevet4@senate.gov</a>
+                      </td>
+                      <td class="text-muted">Admin</td>
+                      <td>
+                        <a href="#">Edit</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- -------------TABLE END-------------- -->
+            <div class="empty">
+              <div class="empty-img">
+                <img
+                  src="./static/illustrations/undraw_printing_invoices_5r4r.svg"
+                  height="128"
+                  alt=""
+                />
+              </div>
+              <p class="empty-title">No results found</p>
+              <p class="empty-subtitle text-muted">
+                Try adjusting your search or filter to find what you're looking
+                for.
+              </p>
+              <div class="empty-action">
+                <a href="./." class="btn btn-primary">
+                  <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Add your first client
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer footer-transparent d-print-none">
+          <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+              <div class="col-lg-auto ms-lg-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <!-- <li class="list-inline-item">
+                    <a href="./docs/index.html" class="link-secondary"
+                      >Documentation</a
+                    >
+                  </li> -->
+                </ul>
+              </div>
+              <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    Copyright &copy; 2023
+                    <a href="." class="link-secondary">Maxapp</a>. All rights
+                    reserved.
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="link-secondary" rel="noopener">
+                      First release
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- ------------END ISI KONTEN -------------------- -->
+    </div>
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js"></script>
+    <script src="./dist/js/demo.min.js"></script>
+  </body>
+</html>

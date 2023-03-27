@@ -1,0 +1,47 @@
+TOAST DANGER
+
+Toastify({
+                        text: '<?php echo $_GET['pesan'] ?>',
+                        offset: {
+                            x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                            y: 40 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                        },
+                        duration: 3000,
+                        destination: "wishlist.php",
+                        newWindow: false,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "center", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #f54248, #f542a1)",
+                        },
+                        onClick: function(){} // Callback after click
+                        }).showToast();
+
+
+
+
+
+
+
+TOAST SUCCESS
+
+Toastify({
+                        text: '<?php echo $_GET['pesan'] ?>',
+                        offset: {
+                            x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                            y: 40 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                        },
+                        duration: 3000,
+                        destination: "wishlist.php",
+                        newWindow: false,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "center", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #42f545, #42f578)",
+                        },
+                        onClick: function(){} // Callback after click
+                        }).showToast();
