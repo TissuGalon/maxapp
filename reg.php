@@ -45,6 +45,10 @@ function generateRandomString($length = 15) {
   }
 /* CEK IDUSER */
 
+
+$password = md5($password);
+
+
 $cek = mysqli_query($conn, "SELECT * FROM user WHERE username='$username'");
 $cek = mysqli_num_rows($cek);
 

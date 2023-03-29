@@ -299,7 +299,7 @@ border: 1px solid rgba(255, 255, 255, 1);">
           }
 
           $qdompet = mysqli_query($conn, "INSERT INTO wallet (id_user, saldo, alamat_wallet) VALUES ('$id_user', 0, '$alamat_dompet')");
-          echo '<script>window.location.href = "index.php"</script>';
+          echo '<script>setTimeout(function() { window.location.href = "index.php" }, 3000);</script>';
         } ?>
 
 

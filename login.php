@@ -72,6 +72,7 @@ include 'koneksi.php';
       $id = $id;
     }
     
+    $pass = md5($pass);
 
     $kueri = mysqli_query($conn, "SELECT * FROM user WHERE email='$id' AND password ='$pass' OR nohp='$id'");
     $tampil = mysqli_fetch_array($kueri);
