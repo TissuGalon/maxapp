@@ -14,7 +14,7 @@ include '../koneksi.php'; ?>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Maxapp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -148,9 +148,37 @@ include '../koneksi.php'; ?>
                                 <h6 class="vendor-title text-dark my-0">
                                     Lokasi Terima Pesanan
                                 </h6>
+                                <small class="text-secondary"><?php echo $p['alamat'] ?></small>
+                                <br>
                                 <small class="text-secondary"><?php echo $p['latitude'] ?>, <?php echo $p['longtitude'] ?></small>
                             </div>
-                            <div><a class="btn btn-primary shadow-sm" href="alamat_pengiriman2.php?id=<?php echo $idpesanan; ?>">Tampilkan Lokasi </a></div>
+                            <div>
+                                <?php if($p['latitude'] != null || $p['latitude'] != '' && $p['longtitude'] != null || $p['longtitude'] != '' ){ ?>
+                                    <a class="btn btn-primary shadow-sm" href="alamat_pengiriman2.php?id=<?php echo $idpesanan; ?>">Tampilkan Lokasi </a>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="my-1"></div>
+
+                <!-- HUBUNGI -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="vendor-title text-dark my-0">
+                                    Hubungi pemesan
+                                </h6>
+                                <small class="text-secondary"><?php echo $u['nohp'] ?></small>
+                            </div>
+                            <div>
+                                <?php if($p['latitude'] != null || $p['latitude'] != '' && $p['longtitude'] != null || $p['longtitude'] != '' ){ ?>
+                                    <a class="btn btn-success shadow-sm" href="alamat_pengiriman2.php?id=<?php echo $idpesanan; ?>"><i class="fa-solid fa-messages"></i> Whatsapp </a>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -311,9 +339,20 @@ include '../koneksi.php'; ?>
                     <form action="proses/upbukti.php" method="POST" enctype="multipart/form-data">
                                 <label class="text-primary"><small>*Ukuran max 5MB</small></label>
                                 <input type="hidden" name="id_pesanan" value="<?php echo $idpesanan ?>"></input>
-                                <input type="file" name="foto" required class="form-control pt-2">
-                                <!--    <a href="#" class="btn m-1 btn-light w-100 text-warning border">Upload
-                                Gambar</a> -->
+                                <input type="file" onchange="validateSize(this)" accept="image/*" name="foto" required class="form-control pt-2">
+                                <script>
+                                    function validateSize(input) {
+                                    const fileSize = input.files[0].size / 1024 / 1024; // in MiB
+                                    if (fileSize > 10) {
+                                        alert('Ukuran File melebihi 10  MiB');
+                                        window.location.reload();
+                                        // $(file).val(''); //for clearing with Jquery
+                                    } else {
+                                        // Proceed further
+                                    }
+                                    }
+                                </script>
+                              
                                 <input type="submit" value="Kirim Bukti Pengiriman" name="ubah"
                                     class="btn m-1 btn-warning w-100 text-light"></input>
                             </form>

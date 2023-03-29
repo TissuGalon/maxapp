@@ -53,19 +53,31 @@ if (isset($_POST['daftar'])) {
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-            echo "file " . htmlspecialchars(basename($_FILES["foto"]["name"])) . " telah diupload.";
-            $response = $respone . " " . "Daftar merchant berhasil.";
+            /* echo "file " . htmlspecialchars(basename($_FILES["foto"]["name"])) . " telah diupload."; */
+            $response = $response . " " . "Daftar merchant berhasil.";
 
             $namafile = htmlspecialchars(basename($_FILES["foto"]["name"]));
 
             $nama = $_POST['nama'];
             $lokasi = $_POST['alamat'];
-            $latitude = $_POST['x'];
-            $longtitude = $_POST['y'];
             $nohp = $_POST['nohp'];
             $deskripsi = $_POST['deskripsi'];
-
+            $latitude = '';
+            $longtitude = '';
             $iduser = $_SESSION['iduser'];
+
+            /* CEK NOHP */
+            $ceknohp = substr($nohp, 0, 2);
+
+            if($ceknohp != "62"){
+                if(str_contains($ceknohp, '0')){
+                    $ceknohp = trim($ceknohp, '0');
+                    $nohp = '62' . $ceknohp . substr($nohp,2);
+                }else{
+                    $nohp = '62' . $nohp;
+                }
+            }
+            /* CEK NOHP */
             
 
             /* ------------------------------------- */
@@ -101,7 +113,8 @@ if (isset($_POST['daftar'])) {
         }
     }
 
-    header("location:../daftar_merchant.php?response=" . $response . "&status=" . $uploadOk . "&id=" . $idproduk);
+    /* header("location:../daftar_merchant.php?response=" . $response . "&status=" . $uploadOk . "&id=" . $idproduk); */
+    echo "<script>window.location.href = '../daftar_merchant.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
 
 
 } ?>

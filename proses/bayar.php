@@ -41,6 +41,7 @@ $kueri2 = mysqli_query($conn, "UPDATE pesanan SET bayar = 'true', id_pembayaran 
 $kueri3 = mysqli_query($conn, "UPDATE wallet SET saldo = $sisa WHERE id_user = '$id_user'");
 
 
-header('location:../pesanan.php?pesan=Pembayaran Berhasil !');
+/* header('location:../pesanan.php?pesan=Pembayaran Berhasil !'); */
+echo "<script>window.location.href = '../pesanan.php?pesan=Pembayaran Berhasil !'</script>";
 
 ?>

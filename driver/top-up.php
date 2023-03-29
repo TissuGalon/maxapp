@@ -16,7 +16,7 @@ session_start();
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
   <!-- Title -->
-  <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+  <title>Maxapp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -83,7 +83,7 @@ session_start();
 
   <?php
   $iduser = $_SESSION['id_driver'];
-  $kueri = mysqli_query($conn, "SELECT * FROM wallet WHERE id_user = '$iduser'");
+  $kueri = mysqli_query($conn, "SELECT * FROM wallet_driver WHERE id_driver = '$iduser'");
   $row = mysqli_fetch_array($kueri);
   ?>
 

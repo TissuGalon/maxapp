@@ -16,7 +16,7 @@ include 'koneksi.php';
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Maxapp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -125,7 +125,19 @@ include 'koneksi.php';
                             <form action="proses/upfoto_produk.php" method="POST" enctype="multipart/form-data">
                                 <label class="text-primary"><small>*Ukuran max 5MB</small></label>
                                 <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"></input>
-                                <input type="file" name="foto" accept="image/*" required class="form-control pt-2">
+                                <input type="file" onchange="validateSize(this)" name="foto" accept="image/*" required class="form-control pt-2">
+                                <script>
+                                    function validateSize(input) {
+                                    const fileSize = input.files[0].size / 1024 / 1024; // in MiB
+                                    if (fileSize > 5) {
+                                        alert('Ukuran File melebihi 5  MiB');
+                                        window.location.reload();
+                                        // $(file).val(''); //for clearing with Jquery
+                                    } else {
+                                        // Proceed further
+                                    }
+                                    }
+                                </script>
                                 <!--    <a href="#" class="btn m-1 btn-light w-100 text-warning border">Upload
                                 Gambar</a> -->
                                 <input type="submit" value="Ganti Foto" name="ubah"
@@ -151,11 +163,26 @@ include 'koneksi.php';
                             </div>
                             <div class="col-6 my-1">
                                 <label><small class="text-dark">Jenis</small></label>
-                                <select class="form-select" name="jenis">
+                                <select class="form-select" name="jenis" onchange="tampil()" id="jenis">
                                     <option value="<?php echo $row['jenis'] ?>"><?php echo ucwords($row['jenis']) ?></option>
+                                    <option value="food">Food</option>
+                                    <option value="obat">obat</option>
+                                    <option value="elektronik">elektronik</option>
                                 </select>
+
+                                <script>
+                                function tampil() {
+                                    if(document.getElementById('jenis').value == "food") {
+                                        document.getElementById('form_subjenis').style.display = '';
+                                    }else{
+                                        document.getElementById('form_subjenis').style.display = 'none';
+                                    }
+                                }
+                            </script>
+
+
                             </div>
-                            <div class="col-6 my-1">
+                            <div class="col-6 my-1" id="form_subjenis" style="display:none;">
                                 <label><small class="text-dark">Sub Jenis</small></label>
                                 <select class="form-select" name="subjenis">
                                     <option value="<?php echo $row['sub_jenis'] ?>"><?php echo ucwords($row['sub_jenis']) ?></option>

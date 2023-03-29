@@ -14,7 +14,7 @@ include '../koneksi.php'; ?>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Maxapp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -87,6 +87,10 @@ include '../koneksi.php'; ?>
             $idpesanan = $_GET['id'];
             $kueri = mysqli_query($conn, "SELECT * FROM pesanan WHERE id_pesanan='$idpesanan'");
             $row = mysqli_fetch_array($kueri);
+            $iduser = $row['id_user'];
+            $kueri2 = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '$iduser'");
+            $u = mysqli_fetch_array($kueri2);
+
             ?>
 
 
@@ -98,7 +102,7 @@ include '../koneksi.php'; ?>
                         <div class="d-flex align-items-start">
                     <!-- Vendor Profile-->
                     <div class="vendor-profile me-3 mt-1">
-                        <figure class="m-0"><img src="../img/user-image/IMG-20230212-WA0016.jpg" alt="Foto User" class="shadow" style="width:80px;height:auto;border-radius:50%;"></figure>
+                        <figure class="m-0"><img src="../img/user-image/<?php echo $u['foto'] ?>" alt="Foto User" class="shadow" style="width:80px;height:auto;border-radius:50%;"></figure>
                     </div>
                     <!-- Vendor Info-->
                     <div class="vendor-info">

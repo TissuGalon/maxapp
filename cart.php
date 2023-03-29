@@ -14,7 +14,7 @@ include 'koneksi.php'; ?>
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
   <!-- Title -->
-  <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+  <title>Maxapp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -111,7 +111,7 @@ border: 1px solid rgba(255, 255, 255, 0.52);">
                     ?>
                     <tr id='<?php echo $rows['id_produk'] ?>' style="">
                       <th scope="row">
-                        <a class="remove-product" href="#" onclick="hapus(<?php echo $rows['id_produk'] ?>)"><i
+                        <a class="remove-product" href="#" onclick="hapus('<?php echo $rows['id_produk'] ?>')"><i
                             class="fa-solid fa-xmark"></i></a>
                       </th>
                       <td><img class="rounded" src="img/product/<?php echo $row['gambar'] ?>" alt=""></td>
@@ -125,13 +125,13 @@ border: 1px solid rgba(255, 255, 255, 0.52);">
                         </a></td>
                       <td>
                         <div class="quantity">
-                          <a href="#" onclick="kurang(<?php echo $rows['id_produk'] ?>)"
+                          <a href="#" onclick="kurang('<?php echo $rows['id_produk'] ?>')"
                             class="btn btn-sm btn-primary text-light">-</a>
                           <input class="qty-text" id="qty<?php echo $rows['id_produk'] ?>" type="number" readonly min='1'
                             value="<?php echo $rows['qty'] ?>">
                           <input type="hidden" name='harga' id='harga<?php echo $rows['id_produk'] ?>'
                             value='<?php echo $row['harga'] ?>'>
-                          <a href="#" onclick="tambah(<?php echo $rows['id_produk'] ?>)"
+                          <a href="#" onclick="tambah('<?php echo $rows['id_produk'] ?>')"
                             class="btn btn-sm btn-primary text-light">+</a>
 
                         </div>

@@ -66,7 +66,7 @@ if (isset($_POST['ubah'])) {
         }
     }
 
-    header("location:../produk_edit.php?response=" . $response . "&status=" . $uploadOk . "&id=" . $idproduk);
-
+    /* header("location:../produk_edit.php?response=" . $response . "&status=" . $uploadOk . "&id=" . $idproduk); */
+    echo "<script>window.location.href = '../produk_edit.php?response=" . $response . "&status=" . $uploadOk . "&id=" . $idproduk . "'</script>";
 
 } ?>

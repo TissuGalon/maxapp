@@ -51,9 +51,11 @@ if(mysqli_num_rows($cekid) > 0){
 $kueri = mysqli_query($conn, "INSERT INTO pesanan (id_pesanan, id_user,latitude,longtitude,produk,metode_pembayaran,total_produk,total_pengiriman,total_pembayaran,tgl_pemesanan,waktu_pemesanan,status_pesanan,catatan,bayar, alamat) VALUES ('$id_pesanan','$id_user','$latitude','$longtitude','$produk','$metode_pembayaran',$total_produk,$total_pengiriman,$total_pembayaran,'$tgl_pemesanan','$waktu_pemesanan','$status_pesanan', '$catatan', '$bayar', '$alamat')");
 
 if($bayar == 'true'){
-    header('location:../pesanan.php?pesan=Produk berhasil dipesan !');
+    /* header('location:../pesanan.php?pesan=Produk berhasil dipesan !'); */
+    echo "<script>window.location.href = '../pesanan.php?pesan=Produk berhasil dipesan !'</script>";
 }else{
-    header('location:../pembayaran.php?id='. $id_pesanan);
+    /* header('location:../pembayaran.php?id='. $id_pesanan); */
+    echo "<script>window.location.href = '../pembayaran.php?id=". $id_pesanan ."'</script>";
 }
 
 

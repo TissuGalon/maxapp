@@ -12,7 +12,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
   <!-- Title -->
-  <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+  <title>Maxapp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -65,10 +65,15 @@
                 <label for="username"><i class="fa-solid fa-user text-secondary"></i></label>
                 <input class="form-control" id="username" type="text" placeholder="Nama User" name="username" required>
               </div>
+              <div class="form-group text-start mb-4"><span class="text-dark">No Telp. / WA</span>
+                <label for="nohp"><small class="text-secondary">+62</small></label>
+                <input class="form-control" id="nohp" type="number" placeholder=" 8123 4567 890" name="nohp"
+                  required>
+              </div>
               <div class="form-group text-start mb-4"><span class="text-dark">Email</span>
                 <label for="email"><i class="fa-solid fa-at text-secondary"></i></label>
-                <input class="form-control" id="email" type="email" placeholder="email@example.com" name="email"
-                  required>
+                <input class="form-control" id="email" type="email" placeholder="email@gmail.com" name="email"
+                  >
               </div>
               <div class="form-group text-start mb-4"><span class="text-dark">Password</span>
                 <label for="password"><i class="fa-solid fa-key text-secondary"></i></label>
@@ -112,13 +117,15 @@ border: 1px solid rgba(255, 255, 255, 0.3);' href="login.php"><!-- <i class="fa-
                 let email = document.getElementById('email').value;
                 let username = document.getElementById('username').value;
 
+                let nohp = String(document.getElementById('nohp').value);
+
                 let password1 = document.getElementById('password1').value;
                 let password2 = document.getElementById('password2').value;
 
 
                 ajax.open("POST", "reg.php", true);
                 ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                ajax.send("email=" + email + "&username=" + username + "&password=" + password1);
+                ajax.send("email=" + email + "&username=" + username + "&password=" + password1 + "&nohp=" + nohp);
                 ajax.onreadystatechange = function () {
                   if (this.readyState == 4 && this.status == 200) {
 
@@ -135,6 +142,12 @@ border: 1px solid rgba(255, 255, 255, 0.3);' href="login.php"><!-- <i class="fa-
                       Swal.fire(
                         'Gagal!',
                         'Username telah digunakan.',
+                        'error'
+                      )
+                    } else if (data == "NoHP Digunakan") {
+                      Swal.fire(
+                        'Gagal!',
+                        'No HP telah digunakan.',
                         'error'
                       )
                     } else if (data == "Berhasil") {

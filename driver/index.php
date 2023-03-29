@@ -16,7 +16,7 @@ session_start();
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
   <!-- Title -->
-  <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+  <title>Maxapp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -128,7 +128,7 @@ session_start();
 
     <?php 
     $iddriver = $_SESSION['id_driver'];
-      $wallet = mysqli_query($conn, "SELECT * FROM wallet WHERE id_user = '$iddriver'");
+      $wallet = mysqli_query($conn, "SELECT * FROM wallet_driver WHERE id_driver = '$iddriver'");
       $wal = mysqli_fetch_array($wallet);
       $cekwallet = mysqli_num_rows($wallet);
       if($cekwallet > 0){ ?>
@@ -211,7 +211,7 @@ if($cekalamat2 > 0){
   $alamat_dompet = generateRandomString();
 }
 
-$qdompet = mysqli_query($conn, "INSERT INTO wallet (id_user, saldo, alamat_wallet) VALUES ('$iddriver', 0, '$alamat_dompet')");
+$qdompet = mysqli_query($conn, "INSERT INTO wallet_driver (id_driver, saldo, alamat_wallet) VALUES ('$iddriver', 0, '$alamat_dompet')");
 echo '<script>window.location.href = "index.php"</script>';
 } ?>
 

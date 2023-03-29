@@ -80,63 +80,89 @@ border: 1px solid rgba(255, 255, 255, 0.52);">
                     <?php
                     $iduser = $_SESSION['iduser'];
                     $all = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk IN (SELECT id_produk FROM wishlist WHERE id_user = '$iduser')");
-                    while ($row = mysqli_fetch_array($all)) {
-                        $idm = $row['id_merchant'];
+                    while ($view = mysqli_fetch_array($all)) {
+                        $idm = $view['id_merchant'];
                         $toko1 = mysqli_query($conn, "SELECT * FROM merchant WHERE id_merchant = '$idm'");
                         $toko = mysqli_fetch_array($toko1);
                         ?>
                         <!-- Product Card -->
-                        <div class="col-4 col-md-4">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <!-- Badge-->
-                                    <!-- <span class="badge rounded-pill badge-warning">Sale</span> -->
-                                    <!-- Wishlist Button-->
-                                    <!-- <a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"></i></a> -->
-                                    <!-- Thumbnail -->
-                                    <a class="product-thumbnail d-block"
-                                        href="produk.php?id=<?php echo $row['id_produk'] ?>">
-                                        <div style="overflow:hidden;width:100%;height:90px;" class="mb-2 rounded shadow-sm">
-                                            <img class="mb-2"
-                                                src="img/product/<?php echo $row['gambar'] ?>" alt="">
+            <div class="col-6 col-md-4">
+              <div class="card product-card">
+                <div class="card-body">
+                  <!-- Badge-->
+                  <!-- <span class="badge rounded-pill badge-warning">Sale</span> -->
+                  <!-- Wishlist Button-->
 
-                                        </div>
+                  <!-- <a class="wishlist-btn" href="#"><i class="fa-solid fa-heart"> </i></a> -->
 
-                                        <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
-                                        <!-- <ul class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                                                data-countdown="2023/12/31 23:59:59">
-                                                                <li><span class="days">0</span>d</li>
-                                                                <li><span class="hours">0</span>h</li>
-                                                                <li><span class="minutes">0</span>m</li>
-                                                                <li><span class="seconds">0</span>s</li>
-                                                            </ul> -->
-                                    </a>
-                                    <!-- Product Title -->
-                                    <small class="text-danger"><small class="fa-solid fa-shop me-1"></small> <?php echo $toko['nama'] ?></small>
+                  <!-- Thumbnail -->
+                  <a class="product-thumbnail d-block" href="produk.php?id=<?php echo $view['id_produk'] ?>">
+                  <div style=" overflow:hidden; height:100%;width:100%;" class="rounded mb-2">
+                  <!-- GAMBAR -->
+            <div class="" style="height:130px;width:100%;overflow:hidden;border-radius:8px; background-position: center; background-size:cover;
+  background-repeat: no-repeat; background-image: url('img/product/<?php echo $view['gambar'] ?>')">
+            </div>    
+            <!-- GAMBAR -->
+                    </div>
+                  
+                    <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+                    <!-- <ul class="offer-countdown-timer d-flex align-items-center shadow-sm"
+                                                                                                                                                                                                                                                                                                                data-countdown="2023/12/31 23:59:59">
+                                                                                                                                                                                                                                                                                                                <li><span class="days">0</span>d</li>
+                                                                                                                                                                                                                                                                                                                <li><span class="hours">0</span>h</li>
+                                                                                                                                                                                                                                                                                                                                <li><span class="minutes">0</span>m</li>
+                                                                                                                                                                                                                                                                                                                <li><span class="seconds">0</span>s</li>
+                                                                                                                                                                                                                                                                                                              </ul> -->
+                  </a>
+                  <!-- <small class=""><i class="fa-solid fa-shop"></i> gg</small> -->
+                  <!-- Product Title -->
+
+                  <div class="d-flex justify-content-between mb-2 mt-1">
+                  <small class="text-danger">
+                    <small class="fa-solid fa-store me-1"></small><?php echo $toko['nama'] ?>
+                  </small>
+                  
+                  <?php if($toko['partner'] == 'true'){ ?>
+                  <small class="text-success">
+                    <img src="img/ongkir.png" style="width:auto; height:15px;">
+                  </small>
+                  <?php } ?>
+
+                  </div>
                                     <small class="text-dark"
-                                        href="produk.php?id=<?php echo $row['id_produk'] ?>">
-                                        <?php echo $row['nama_produk'] ?>
+                                        href="produk.php?id=<?php echo $view['id_produk'] ?>">
+                                        <?php echo $view['nama_produk'] ?>
                                     </small>
                                     <!-- Product Price -->
                                     <br>
                                     <small class="">Rp.
-                                    <?php echo number_format($row['harga'],2,",",".") ?><span></span>
+                                    <?php echo number_format($view['harga'],2,",",".") ?><span></span>
                                     </small>
-                                    <!-- Rating -->
-                                    <div class="product-rating">
-                                        <?php $bintang = 0;
-                                        while ($bintang < $row['bintang']) { ?>
-                                            <i class="fa-solid fa-star"></i>
-                                            <?php $bintang += 1;
-                                        }
-                                        ?>
-                                    </div>
-                                    <!-- Add to Cart -->
-                                    <!-- <a class="btn btn-success btn-sm" href="#"><i
-                                            class="fa-solid fa-plus"></i></a> -->
-                                </div>
-                            </div>
-                        </div>
+
+
+                  <!-- Rating -->
+                  <div class="product-rating">
+                    <?php
+                    $idp = $view['id_produk'];
+                    $qb = mysqli_query($conn, "SELECT AVG(bintang) FROM `ulasan_produk` WHERE id_produk = '$idp'");
+                    $brow = mysqli_fetch_array($qb);
+                    $bintang = 0;
+                    while ($bintang < $brow[0]) { ?>
+                      <i class="fa-solid fa-star"></i>
+                      <?php $bintang += 1;
+                    }
+                    ?>
+                  </div>
+                  <!-- Rating -->
+
+
+
+                  <!-- Add to Cart -->
+                  <!-- <a class="btn btn-success btn-sm" href="#">
+                    <i class="fa-solid fa-plus"></i></a> -->
+                </div>
+              </div>
+            </div>
                     <?php } ?>
 
                 </div>

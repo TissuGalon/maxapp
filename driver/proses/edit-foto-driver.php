@@ -59,13 +59,15 @@ if (isset($_POST['ganti'])) {
             $iddriver = $_SESSION['id_driver'];
             $kueri = mysqli_query($conn, "UPDATE driver SET foto = '$namafilebaru' WHERE id_driver = '$iddriver'");
 
-            header("location:../upfoto.php?response=" . $response . "&status=" . $uploadOk);
+            /* header("location:../upfoto.php?response=" . $response . "&status=" . $uploadOk); */
+            echo "<script>window.location.href = '../upfoto.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
 
 
         } else {
             echo "Maaf, ada kesalahan saat meng upload gambar.";
             $response = $respone . " " . "Maaf, ada kesalahan saat meng upload gambar.";
-            header("location:../tambah_produk.php?response=" . $response . "&status=" . $uploadOk);
+            /* header("location:../tambah_produk.php?response=" . $response . "&status=" . $uploadOk); */
+            echo "<script>window.location.href = '../tambah_produk.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
         }
     }
 

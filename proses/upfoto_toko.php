@@ -52,7 +52,7 @@ if (isset($_POST['ubah'])) {
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-            echo "file " . htmlspecialchars(basename($_FILES["foto"]["name"])) . " telah diupload.";
+            /* echo "file " . htmlspecialchars(basename($_FILES["foto"]["name"])) . " telah diupload."; */
             $response = $respone . " " . "Foto berhasil di ubah.";
 
 
@@ -65,7 +65,7 @@ if (isset($_POST['ubah'])) {
         }
     }
 
-    header("location:../edit-toko.php?response=" . $response . "&status=" . $uploadOk);
-
+    /* header("location:../edit-toko.php?response=" . $response . "&status=" . $uploadOk); */
+    echo "<script>window.location.href = '../edit-toko.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
 
 } ?>

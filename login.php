@@ -16,7 +16,7 @@ include 'koneksi.php';
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
   <!-- Title -->
-  <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+  <title>Maxapp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -52,24 +52,42 @@ include 'koneksi.php';
 
   <?php
   if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
+    $id = $_POST['id'];
     $pass = $_POST['pass'];
 
-    $kueri = mysqli_query($conn, "SELECT * FROM user WHERE email='$email' AND password ='$pass'");
+    if(str_contains($id, '@gmail.com')){
+      $id = $id;
+    }else{
+      /* CEK NOHP */
+      $ceknohp = substr($id, 0, 2);
+      if($ceknohp != "62"){
+          if(str_contains($ceknohp, '0')){
+              $ceknohp = trim($ceknohp, '0');
+              $id = '62' . $ceknohp . substr($id,2);
+          }else{
+              $id = '62' . $id;
+          }
+      }
+      /* CEK NOHP */
+      $id = $id;
+    }
+    
+
+    $kueri = mysqli_query($conn, "SELECT * FROM user WHERE email='$id' AND password ='$pass' OR nohp='$id'");
     $tampil = mysqli_fetch_array($kueri);
     $cek = mysqli_num_rows($kueri);
     if ($cek > 0) {
       $_SESSION['username'] = $tampil['username'];
       $_SESSION['iduser'] = $tampil['id_user'];
-      $_SESSION['toko'] = $tampil['id_merchant'];
-      header("location:index.php");
+      $_SESSION['toko'] = $tampil['id_merchant'];      
+      echo "<script>window.location.href = 'index.php'</script>";
     } else { ?>
       <script>
         alert();
         function alert() {
           Swal.fire(
             'Gagal',
-            'Password Salah / Akun tidak terdaftar !',
+            'Password Salah / Akun tidak terdaftar ! <?php echo $id; ?>',
             'error'
           )
         }
@@ -94,9 +112,9 @@ include 'koneksi.php';
           <!-- Register Form-->
           <div class="register-form mt-5 text-dark">
             <form method="POST">
-              <div class="form-group text-start text-dark mb-4"><span class="text-dark">Email</span>
+              <div class="form-group text-start text-dark mb-4"><span class="text-dark">No HP / Email</span>
                 <label for="username" class="text-secondary"><i class="fa-solid fa-user"></i></label>
-                <input class="form-control pl2" style="color: black; border-bottom: 1px solid grey;" id="username" type="email" name="email" placeholder="Email@example.com"
+                <input class="form-control pl2" style="color: black; border-bottom: 1px solid grey;" id="username" type="text" name="id" placeholder="62812345678 / Email@example.com"
                   required max="50" <?php if(isset($_GET['email'])){?> value="<?php echo $_SESSION['email'] ?>" <?php } ?>>
               </div>
               <div class="form-group text-start text-dark mb-4"><span class="text-dark">Password</span>

@@ -52,7 +52,7 @@ if (isset($_POST['tambah'])) {
     } else {
         if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
             echo "file " . htmlspecialchars(basename($_FILES["foto"]["name"])) . " telah diupload.";
-            $response = $respone . " " . "Foto berhasil di ubah.";
+            $response = $response . " " . "Foto berhasil di ubah.";
 
             $namafile = htmlspecialchars(basename($_FILES["foto"]["name"]));
             
@@ -65,14 +65,37 @@ if (isset($_POST['tambah'])) {
 
             $merchant = $_SESSION['toko'];
 
-            $kueri = mysqli_query($conn, "INSERT INTO produk (nama_produk,harga,stock,jenis,sub_jenis,deskripsi,id_merchant,gambar) VALUES ('$nama','$harga','$stock','$jenis','$subjenis','$deskripsi', '$merchant', '$namafilebaru')");
+            /* CEK ID PRODUK */
+            /* RANDOM STRING */
+            function generateRandomString($length = 15) {
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[random_int(0, $charactersLength - 1)];
+                }
+                return $randomString;
+            }
+            /* RANDOM STRING */
+
+            $idproduk = generateRandomString();
+            $cekid = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk = '$idproduk'");
+            if(mysqli_num_rows($cekid) > 0){
+                $idproduk = generateRandomString();
+                
+            }
+            /* CEK ID PRODUK */
+
+            $kueri = mysqli_query($conn, "INSERT INTO produk (id_produk, nama_produk,harga,stock,jenis,sub_jenis,deskripsi,id_merchant,gambar) VALUES ('$idproduk','$nama','$harga','$stock','$jenis','$subjenis','$deskripsi', '$merchant', '$namafilebaru')");
             $response = $respone . " " . "Produk berhasil ditambahkan.";
-            header("location:../myproduk.php?response=" . $response . "&status=" . $uploadOk);
+            /* header("location:../myproduk.php?response=" . $response . "&status=" . $uploadOk); */
+            echo "<script>window.location.href = '../myproduk.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
 
         } else {
             echo "Maaf, ada kesalahan saat meng upload gambar.";
             $response = $respone . " " . "Maaf, ada kesalahan saat meng upload gambar.";
-            header("location:../tambah_produk.php?response=" . $response . "&status=" . $uploadOk);
+            /* header("location:../tambah_produk.php?response=" . $response . "&status=" . $uploadOk); */
+            echo "<script>window.location.href = '../tambah_produk.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
         }
     }
 

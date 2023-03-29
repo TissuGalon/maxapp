@@ -16,7 +16,7 @@ include 'koneksi.php';
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Maxapp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -129,7 +129,7 @@ include 'koneksi.php';
                             </div>
                             <div class="col-12 my-1">
                                 <label><small class="text-dark">No Telp. Merchant</small></label>
-                                <input class="form-control text-dark" name="nohp" value=""> 
+                                <input type="number" class="form-control text-dark" name="nohp" value=""> 
                             </div>
                            <!--  <div class="col-6 my-1">
                                 <label><small class="text-dark">Koordinat x</small></label>
@@ -240,6 +240,31 @@ include 'koneksi.php';
 
                 </div>
 
+
+                    <div class="card  my-1">
+                        <div class="card-body p-1">
+                            <a class="btn btn-danger rounded-pill w-100 text-light" onclick="batalkan()">Batalkan</a>
+                        </div>
+                    </div>
+                    <script>
+                        function batalkan(){
+                            Swal.fire({
+                            icon: 'warning',
+                            title: 'Batalkan pendaftaran ?',
+                            showCancelButton: true,
+                            confirmButtonText: 'Batalkan',
+                            confirmButtonColor: '#d33',
+                            }).then((result) => {
+                            /* Read more about isConfirmed, isDenied below */
+                            if (result.isConfirmed) {
+                                window.location.href = 'proses/batalkan_daftar_merchant.php?id=<?php echo $idm; ?>';
+                            } else if (result.isDenied) {
+                                
+                            }
+                            })
+                        }
+                    </script>
+
                 <?php }} ?>
 
 
@@ -250,6 +275,19 @@ include 'koneksi.php';
 
         </div>
     </div>
+
+
+    <?php
+    if(isset($_GET['status']) && $_GET['status'] == 'dibatalkan'){ ?>
+    <script>
+        Swal.fire(
+        'Dibatalkan',
+        'Pengajuan pendaftaran merchant berhasil dibatalkan.',
+        'success'
+        )
+    </script>
+    <?php }
+    ?>
 
 
     <!-- SWEET ALERT -->

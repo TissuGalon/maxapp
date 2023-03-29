@@ -16,7 +16,7 @@ include 'koneksi.php';
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
   <!-- Title -->
-  <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+  <title>Maxapp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -60,7 +60,7 @@ include 'koneksi.php';
       $online = mysqli_query($conn, "UPDATE driver SET status = 'online' WHERE id_driver = '$iddriver'");
       $_SESSION['username'] = $tampil['nama_driver'];
       $_SESSION['id_driver'] = $tampil['id_driver'];
-      header("location:driver/index.php");
+      echo "<script>window.location.href = 'driver/index.php'</script>";
     } else { ?>
       <script>
         alert();

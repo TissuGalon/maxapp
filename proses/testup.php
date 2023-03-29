@@ -2,10 +2,13 @@
 include '../koneksi.php';
 session_start();
 
+$namafilebaru = "";
 
 if (isset($_POST['ubah'])) {
     $target_dir = "../img/user-image/";
-    $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+    $temp = explode(".", $_FILES["foto"]["name"]);
+    $namafilebaru = round(microtime(true)) . $_FILES["foto"]["name"];
+    $target_file = $target_dir . $namafilebaru;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     // Check if image file is a actual image or fake image
@@ -54,14 +57,15 @@ if (isset($_POST['ubah'])) {
 
             $namafile = htmlspecialchars(basename($_FILES["foto"]["name"]));
             $iduser = $_SESSION['iduser'];
-            $kueri = mysqli_query($conn, "UPDATE user SET foto='$namafile' WHERE id_user='$iduser'");
+            $kueri = mysqli_query($conn, "UPDATE user SET foto='$namafilebaru' WHERE id_user='$iduser'");
         } else {
             echo "Maaf, ada kesalahan saat meng upload file.";
             $response = $respone . " " . "Maaf, ada kesalahan saat meng upload file.";
         }
     }
 
-    header("location:../upfoto.php?response=" . $response . "&status=" . $uploadOk);
+    /* header("location:../upfoto.php?response=" . $response . "&status=" . $uploadOk); */
+    echo "<script>window.location.href = '../upfoto.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
 
 
 } ?>

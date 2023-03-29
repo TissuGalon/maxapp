@@ -16,7 +16,7 @@ include 'koneksi.php';
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
   <!-- Title -->
-  <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+  <title>Maxapp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -127,7 +127,7 @@ include 'koneksi.php';
               </div>
               <div class="mb-3">
                 <div class=" mb-2"><i class="fa-solid me-2 text-dark fa-phone"></i><span class="text-dark">Phone</span></div>
-                <input class="form-control" id="nohp" type="text" disabled value="<?php echo $row['nohp'] ?>">
+                <input class="form-control" id="nohp" type="number" value="<?php echo $row['nohp'] ?>">
               </div>
               <div class="mb-3">
                 <div class=" mb-2"><i class="fa-solid me-2 text-dark fa-envelope"></i><span class="text-dark">Email Address</span></div>

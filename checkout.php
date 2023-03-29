@@ -17,7 +17,7 @@ session_start();
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Maxapp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -320,7 +320,7 @@ session_start();
 
 
                                     <script>                                        
-                                        allproduk.push({ id: <?php echo $row['id_produk'] ?>, produk: "<?php echo $row['nama_produk'] ?>", harga: <?php echo $row['harga'] ?>, qty: <?php echo $view['qty'] ?>, id_merchant: <?php echo $row['id_merchant'] ?>});
+                                        allproduk.push({ id: "<?php echo $row['id_produk'] ?>", produk: "<?php echo $row['nama_produk'] ?>", harga: <?php echo $row['harga'] ?>, qty: <?php echo $view['qty'] ?>, id_merchant: "<?php echo $row['id_merchant'] ?>"});
                                     </script>
 
                                     <div class='border rounded shadow-sm p-2'>
@@ -455,7 +455,21 @@ session_start();
 
                             <div class="shipping-method-choose">
                                 <ul class="ps-0">
-                                    <?php
+                                    
+                                <li>
+                                    <input id="fastShipping2" type="radio" value="2" checked name="pembayaran">
+                                    <label for="fastShipping2">COD (Cash On Delivery)<span></span></label>
+                                    <div class="check"></div>
+                                </li>
+
+                                
+                                <li>
+                                    <input id="fastShipping1" type="radio" value="1" checked name="pembayaran">
+                                    <label for="fastShipping1">Saldo Max<span></span></label>
+                                    <div class="check"></div>
+                                </li>
+
+                                    <!-- <?php
                                     $no2 = 1;
                                     $pay = mysqli_query($conn, "SELECT * FROM pay_method");
                                     while($py = mysqli_fetch_array($pay)){ ?>
@@ -464,7 +478,7 @@ session_start();
                                         <label for="fastShipping<?php echo $no2++; ?>"><?php echo $py['nama'] ?><span></span></label>
                                         <div class="check"></div>
                                     </li>
-                                    <?php } ?>
+                                    <?php } ?> -->
 
                                 </ul>
                             </div>

@@ -15,7 +15,8 @@ $waktu = date("H:i");
 
 
 if($cek > 0 && $row['status_pesanan'] == "diproses"){
-    header('location:../pesanan.php?pesan=Pesanan sedang di proses, Tidak dapat dibatalkan !');
+    /* header('location:../pesanan.php?pesan=Pesanan sedang di proses, Tidak dapat dibatalkan !'); */
+    echo "<script>window.location.href = '../pesanan.php?pesan=Pesanan sedang di proses, Tidak dapat dibatalkan !'</script>";
 }else{
     $kueri = mysqli_query($conn, "UPDATE pesanan SET status_pesanan ='dibatalkan' WHERE id_pesanan='$id'");
 
@@ -54,7 +55,8 @@ if($cek > 0 && $row['status_pesanan'] == "diproses"){
 
     }
 
-    header('location:../pesanan.php?pesan=Pesanan '. $id . ' Dibatalkan !');
+    /* header('location:../pesanan.php?pesan=Pesanan '. $id . ' Dibatalkan !'); */
+    echo "<script>window.location.href = '../pesanan.php?pesan=Pesanan ". $id ." Dibatalkan !'</script>";
 }
 
 

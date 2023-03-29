@@ -14,7 +14,7 @@ include 'koneksi.php'; ?>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Maxapp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -137,6 +137,30 @@ include 'koneksi.php'; ?>
                                                     <?php echo $ul['tgl'] ?>
                                                 </div>
                                             </span>
+
+                                            <?php if($ul['id_user'] == $_SESSION['iduser']){ ?>
+                                                <a class="btn btn-danger btn-sm m-1" onclick="hps_penilaian('<?php echo $ul['id_ulasan'] ?>')"><i class="fa-solid fa-x me-1"></i> Hapus Penilaian</a>                                            
+                                            <?php } ?>
+
+                                            <script>
+                                                function hps_penilaian(id){
+                                                    Swal.fire({
+                                                    icon: 'warning',
+                                                    title: 'Hapus ulasan anda ?',
+                                                    showCancelButton: true,
+                                                    cancelButtonText: 'Batal',
+                                                    confirmButtonText: 'Hapus',
+                                                    confirmButtonColor: '#d33',
+                                                    }).then((result) => {
+                                                    /* Read more about isConfirmed, isDenied below */
+                                                    if (result.isConfirmed) {
+                                                        window.location.href = "proses/hapus_ulasan.php?id="+id+"&idproduk=<?php echo $_GET['id'] ?>";
+                                                    } else if (result.isDenied) {
+                                                    }
+                                                    })
+                                                }
+                                            </script> 
+
                                             <!-- <a class="review-image mt-2 border rounded" href="img/product/3.png"><img
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             class="rounded-3" src="img/product/3.png" alt=""></a> -->
                                         </div>

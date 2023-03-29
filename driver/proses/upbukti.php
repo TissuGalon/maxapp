@@ -53,7 +53,7 @@ if (isset($_POST['ubah'])) {
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-            echo "file " . htmlspecialchars(basename($_FILES["foto"]["name"])) . " telah diupload.";
+            /* echo "file " . htmlspecialchars(basename($_FILES["foto"]["name"])) . " telah diupload."; */
             $response = $response . " " . "Foto berhasil di ubah.";
 
             $namafile = htmlspecialchars(basename($_FILES["foto"]["name"]));
@@ -70,7 +70,8 @@ if (isset($_POST['ubah'])) {
         }
     }
 
-    header("location:../riwayat.php?response=" . $response . "&status=" . $uploadOk);
+    /* header("location:../riwayat.php?response=" . $response . "&status=" . $uploadOk); */
+    echo "<script>window.location.href = '../riwayat.php?response=" . $response . "&status=" . $uploadOk . "'</script>";
 
 
 } ?>

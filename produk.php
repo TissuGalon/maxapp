@@ -14,7 +14,7 @@ include 'koneksi.php'; ?>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Maxapp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap"
@@ -122,9 +122,9 @@ include 'koneksi.php'; ?>
                     $wishlist = mysqli_query($conn, "SELECT * FROM wishlist WHERE id_produk = '$id' AND id_user = '$id_user'");
                     $wish = mysqli_num_rows($wishlist);
                     if($wish > 0){ ?>
-                        <a href="#" onclick="wishlist(<?php echo $row['id_produk'] ?>)"><i id="1heart<?php echo $row['id_produk'] ?>" class="fa-solid fa-heart"></i></a>
+                        <a href="#" onclick="wishlist('<?php echo $row['id_produk'] ?>')"><i id="1heart<?php echo $row['id_produk'] ?>" class="fa-solid fa-heart"></i></a>
                         <?php }else{ ?>
-                        <a href="#" onclick="wishlist(<?php echo $row['id_produk'] ?>)"><i id="1heart<?php echo $row['id_produk'] ?>" class="fa-sharp fa-regular fa-heart"></i></a>
+                        <a href="#" onclick="wishlist('<?php echo $row['id_produk'] ?>')"><i id="1heart<?php echo $row['id_produk'] ?>" class="fa-sharp fa-regular fa-heart"></i></a>
                     <?php }
                 } ?>
                     
@@ -214,21 +214,25 @@ include 'koneksi.php'; ?>
 
                     <div class="container d-flex align-items-center justify-content-between rtl-flex-d-row-r">
                         <div class="ratings">
-                            <?php $bintang = 0;
-                            while ($bintang < $row['bintang']) { ?>
+                            <?php
+                            $idp = $row['id_produk'];
+                            $qb = mysqli_query($conn, "SELECT AVG(bintang) FROM `ulasan_produk` WHERE id_produk = '$idp'");
+                            $brow = mysqli_fetch_array($qb);
+                            $bintang = 0;
+                            while ($bintang < $brow[0]) { ?>
                                 <i class="fa-solid fa-star"></i>
                                 <?php $bintang += 1;
                             } ?>
 
 
                             <span class="ps-1">
-                                <?php echo $row['bintang'] ?> ratings
+                                <?php echo round($brow[0]) ?> ratings
                             </span>
                         </div>
                         <div class="total-result-of-ratings"><span>
-                                <?php echo $row['bintang'] ?>.0
+                                <?php echo round($brow[0]) ?>.0
                             </span>
-                            <?php switch ($row['bintang']) {
+                            <?php switch (round($brow[0])) {
                                 case 0:
                                     echo '<span class="text-secondary">Belum diberi Rating</span>';
                                     break;
@@ -359,7 +363,7 @@ include 'koneksi.php'; ?>
                         <?php } else { ?>
 
                             <?php if($row['id_merchant'] != $_SESSION['toko']){ ?>
-                                <a href="#" class="btn btn-warning text-light ms-1" onclick="add()">Tambahkan ke Keranjang <i class="fa-solid fa-cart-plus ms-2"></i></a>
+                                <a href="#" class="btn btn-warning text-light ms-1" onclick="add('<?php echo $id; ?>')">Tambahkan ke Keranjang <i class="fa-solid fa-cart-plus ms-2"></i></a>
                             <?php }else{ ?>
                                 <a href="produk_edit.php?id=<?php echo $row['id_produk'] ?>" class="btn btn-warning text-light w-50 ms-3"><i class="fa-solid fa-pencil me-2"></i> Edit Produk</a>
                             <?php } ?>
@@ -377,9 +381,8 @@ include 'koneksi.php'; ?>
 
                 var ajax = new XMLHttpRequest();
 
-                function add() {
+                function add(idd) {
 
-                    let idd = <?php echo $id; ?>;
                     let qty = document.getElementById('qty').value;
 
 
@@ -629,6 +632,57 @@ include 'koneksi.php'; ?>
                     </div>
                 </div>
             </div>
+
+            <?php if(isset($_GET['ulasan']) && $_GET['ulasan'] == 'hapus'){ ?>
+                <script>
+                    function alert_ulasan(text){
+                            Toastify({
+                        text: text,
+                        offset: {
+                            x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                            y: 40 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                        },
+                        duration: 3000,
+                        destination: "#",
+                        newWindow: false,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "center", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #f54248, #f542a1)",
+                        },
+                        onClick: function(){} // Callback after click
+                        }).showToast();
+                        }
+                        alert_ulasan('Ulasan dihapus');
+            </script>
+            <?php }else if(isset($_GET['ulasan']) && $_GET['ulasan'] == 'success'){ ?>
+                <script>
+                    function alert_ulasan(text){
+                            Toastify({
+                        text: text,
+                        offset: {
+                            x: 10, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                            y: 40 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                        },
+                        duration: 3000,
+                        destination: "#",
+                        newWindow: false,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "center", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #369bc7, #36c2c7)",
+                        },
+                        onClick: function(){} // Callback after click
+                        }).showToast();
+                        }
+                        alert_ulasan('Ulasan ditambahkan');
+            </script>
+            <?php } ?>
+
             <!-- Rating & Review Wrapper -->
             <div class="rating-and-review-wrapper bg-white py-3 my-1 dir-rtl">
                 <div class="container">
@@ -669,6 +723,7 @@ include 'koneksi.php'; ?>
                                                     <?php $bintang += 1;
                                                 } ?>
                                             </div>
+                                            
                                             <small class="text-dark">
                                                 <?php echo $vuser['nama'] ?>
                                             </small>
@@ -684,9 +739,34 @@ include 'koneksi.php'; ?>
                                                     <?php echo $ul['tgl'] ?>
                                                 </div>
                                             </span>
+                                            <?php if($ul['id_user'] == $_SESSION['iduser']){ ?>
+                                                <a class="btn btn-danger btn-sm m-1" onclick="hps_penilaian('<?php echo $ul['id_ulasan'] ?>')"><i class="fa-solid fa-x me-1"></i> Hapus Penilaian</a>                                            
+                                            <?php } ?>
+
+                                            <script>
+                                                function hps_penilaian(id){
+                                                    Swal.fire({
+                                                    icon: 'warning',
+                                                    title: 'Hapus ulasan anda ?',
+                                                    showCancelButton: true,
+                                                    cancelButtonText: 'Batal',
+                                                    confirmButtonText: 'Hapus',
+                                                    confirmButtonColor: '#d33',
+                                                    }).then((result) => {
+                                                    /* Read more about isConfirmed, isDenied below */
+                                                    if (result.isConfirmed) {
+                                                        window.location.href = "proses/hapus_ulasan.php?id="+id+"&idproduk=<?php echo $_GET['id'] ?>";
+                                                    } else if (result.isDenied) {
+                                                    }
+                                                    })
+                                                }
+                                            </script>
+                                            
+
                                             <!-- <a class="review-image mt-2 border rounded" href="img/product/3.png"><img
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             class="rounded-3" src="img/product/3.png" alt=""></a> -->
                                         </div>
+                                     
                                     </li>
 
                                 <?php } ?>
