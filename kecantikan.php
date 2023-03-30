@@ -149,11 +149,11 @@ include 'koneksi.php'; ?>
 
                     <?php
                     if(isset($_GET['sub']) && $_GET['sub'] == 'Makanan'){
-                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE sub_jenis='Makanan'");
+                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE sub_jenis='Makanan' AND hapus = 'false'");
                     }else if(isset($_GET['sub']) && $_GET['sub'] == 'Minuman'){
-                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE sub_jenis='Minuman'");
+                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE sub_jenis='Minuman' AND hapus = 'false'");
                     }else{
-                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE jenis='kecantikan'");
+                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE jenis='kecantikan' AND hapus = 'false'");
                     }
                     ?>
 

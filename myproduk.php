@@ -153,9 +153,9 @@ include 'koneksi.php'; ?>
                     $idm = $_SESSION['toko'];
                     if(isset($_GET['search'])){
                         $search = $_GET['search'];
-                        $kueri = mysqli_query($conn, "SELECT * FROM produk WHERE id_merchant = '$idm' AND nama_produk LIKE '%$search%'");
+                        $kueri = mysqli_query($conn, "SELECT * FROM produk WHERE id_merchant = '$idm' AND nama_produk LIKE '%$search%' AND hapus = 'false'");
                     }else{
-                        $kueri = mysqli_query($conn, "SELECT * FROM produk WHERE id_merchant = '$idm'");
+                        $kueri = mysqli_query($conn, "SELECT * FROM produk WHERE id_merchant = '$idm' AND hapus = 'false'");
                     }
                     $jmlproduk = mysqli_num_rows($kueri);
                     ?>

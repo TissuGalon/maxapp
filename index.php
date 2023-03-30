@@ -700,7 +700,7 @@ border: 1px solid rgba(255, 255, 255, 0.52);">
         <div class="row g-2 ">
 
           <?php
-          $all = mysqli_query($conn, "SELECT * FROM `produk` P JOIN merchant m ON P.id_merchant = m.id_merchant ORDER BY partner DESC LIMIT 50");
+          $all = mysqli_query($conn, "SELECT * FROM `produk` P JOIN merchant m ON P.id_merchant = m.id_merchant WHERE hapus = 'false' ORDER BY partner DESC LIMIT 50");
           while ($view = mysqli_fetch_array($all)) {
             $idm = $view['id_merchant'];
             $toko1 = mysqli_query($conn, "SELECT * FROM merchant WHERE id_merchant = '$idm'");

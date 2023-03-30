@@ -71,7 +71,7 @@ include 'koneksi.php'; ?>
     <?php
     $idm = $_SESSION['toko'];
     $kueri = mysqli_query($conn, "SELECT * FROM merchant WHERE id_merchant ='$idm'");
-    $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_merchant = '$idm'");
+    $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_merchant = '$idm' AND hapus = 'false'");
     $jml_produk = mysqli_num_rows($produk);
     $row = mysqli_fetch_array($kueri);
     ?>

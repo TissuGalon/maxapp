@@ -31,8 +31,8 @@ if (isset($_SESSION['username'])) {
                     <h5 class="user-name mb-1 text-white">
                         <?php echo $usr['nama'] ?>
                     </h5>
-                    <p class="available-balance text-white">Saldo Rp. <span class="counter">100000</span></p>
-                    <button class='btn btn-warning text-light'>Top Up</button>
+                    <!-- <p class="available-balance text-white">Saldo Rp. <span class="counter">100000</span></p>
+                    <button class='btn btn-warning text-light'>Top Up</button> -->
                 </div>
             </div>
             <!-- Sidenav Nav-->

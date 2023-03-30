@@ -314,7 +314,7 @@ border: 1px solid rgba(255, 255, 255, 0.52);">
         <div class="row g-2 ">
 
           <?php
-          $all = mysqli_query($conn, "SELECT * FROM produk");
+          $all = mysqli_query($conn, "SELECT * FROM produk WHERE hapus = 'false'");
           while ($view = mysqli_fetch_array($all)) {
             $idm = $view['id_merchant'];
             $toko1 = mysqli_query($conn, "SELECT * FROM merchant WHERE id_merchant = '$idm'");
