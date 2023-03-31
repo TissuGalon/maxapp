@@ -12,7 +12,7 @@ if (isset($_SESSION['username'])) {
         <!-- Close button-->
         <button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         <!-- Offcanvas body-->
-        <div class="offcanvas-body">
+        <div class="offcanvas-body bg-warning">
             <!-- Sidenav Profile-->
             <div class="sidenav-profile">
                 <?php if ($usr['foto'] == '') { ?>
@@ -63,7 +63,7 @@ if (isset($_SESSION['username'])) {
         <!-- Close button-->
         <button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         <!-- Offcanvas body-->
-        <div class="offcanvas-body" style="">
+        <div class="offcanvas-body bg-warning">
 
        <!--  background: rgb(255,205,67);
     background: linear-gradient(90deg, rgba(255,205,67,1) 0%, rgba(255,193,7,1) 35%, rgba(255,152,7,1) 100%); -->

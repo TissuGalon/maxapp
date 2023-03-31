@@ -23,12 +23,13 @@
         welcomeSlider.owlCarousel({
             items: 1,
             loop: true,
-            autoplay: false,
+            autoplay: true,
             dots: true,
             center: true,
             margin: 0,
             animateIn: 'fadeIn',
-            animateOut: 'fadeOut'
+            animateOut: 'fadeOut',
+            smartSpeed: 800
         })
 
         welcomeSlider.on('translate.owl.carousel', function () {

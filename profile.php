@@ -213,7 +213,7 @@ border: 1px solid rgba(255, 255, 255, 0.52); border-radius:20px;">
 
             
             <?php if($moq['partner'] != 'true' && $moq['konfirmasi'] == 'true'){ ?>
-            <a href="daftar_partner.php" class="text-secondary btn   text-dark w-100 py-3 my-1" style="background-color:#f5f7fa; border-radius:20px; border: 2px solid orange">
+            <a href="https://wa.me/6282370965511" target="_blank" class="text-secondary btn   text-dark w-100 py-3 my-1" style="background-color:#f5f7fa; border-radius:20px; border: 2px solid orange">
             <div class="d-flex justify-content-between">
                 <div>
                     <i class="fa-solid fa-certificate text-warning me-3 ms-2"></i> <small>Daftar Max Partner</small> 
