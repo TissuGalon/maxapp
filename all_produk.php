@@ -371,9 +371,9 @@ border: 1px solid rgba(255, 255, 255, 0.52);">
                                     </small>
                                     <!-- Product Price -->
                                     <br>
-                                    <small class="">Rp.
-                                    <?php echo number_format($view['harga'],2,",",".") ?><span></span>
-                                    </small>
+                                    <div class="">Rp.
+                                    <?php echo number_format($view['harga'],0,",",".") ?><span></span>
+                                    </div>
                   <!-- Rating -->
                   <div class="product-rating">
                   

@@ -557,7 +557,7 @@ include 'koneksi.php'; ?>
                         <?php
                         $jenis = $row['jenis'];
                         $subjenis = $row['sub_jenis'];
-                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE jenis='$jenis' OR sub_jenis ='$subjenis' LIMIT 10");
+                        $produk = mysqli_query($conn, "SELECT * FROM produk WHERE jenis='$jenis' AND hapus='false' OR sub_jenis ='$subjenis' LIMIT 10");
                         while ($p = mysqli_fetch_array($produk)) {
                             ?>
 
@@ -607,7 +607,7 @@ include 'koneksi.php'; ?>
                                     </a>
                                     <!-- Product Price -->
                                     <p class="sale-price">Rp.
-                                    <?php echo number_format($p['harga'],2,",",".") ?><span></span>
+                                    <?php echo number_format($p['harga'],0,",",".") ?><span></span>
                                     </p>
                                     <!-- Rating -->
                                     <div class="product-rating">
@@ -739,7 +739,7 @@ include 'koneksi.php'; ?>
                                                     <?php echo $ul['tgl'] ?>
                                                 </div>
                                             </span>
-                                            <?php if($ul['id_user'] == $_SESSION['iduser']){ ?>
+                                            <?php if(isset($_SESSION['iduser']) && $ul['id_user'] == $_SESSION['iduser']){ ?>
                                                 <a class="btn btn-danger btn-sm m-1" onclick="hps_penilaian('<?php echo $ul['id_ulasan'] ?>')"><i class="fa-solid fa-x me-1"></i> Hapus Penilaian</a>                                            
                                             <?php } ?>
 

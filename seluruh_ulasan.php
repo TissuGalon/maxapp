@@ -138,7 +138,7 @@ include 'koneksi.php'; ?>
                                                 </div>
                                             </span>
 
-                                            <?php if($ul['id_user'] == $_SESSION['iduser']){ ?>
+                                            <?php if(isset($_SESSION['iduser']) && $ul['id_user'] == $_SESSION['iduser']){ ?>
                                                 <a class="btn btn-danger btn-sm m-1" onclick="hps_penilaian('<?php echo $ul['id_ulasan'] ?>')"><i class="fa-solid fa-x me-1"></i> Hapus Penilaian</a>                                            
                                             <?php } ?>
 

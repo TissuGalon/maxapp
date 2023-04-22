@@ -220,7 +220,7 @@ border: 1px solid rgba(255, 255, 255, 0.52);">
                                     <!-- Product Price -->
                                     <br>
                                     <small class="">Rp.
-                                    <?php echo number_format($p['harga'],2,",",".") ?><span></span>
+                                    <?php echo number_format($p['harga'],0,",",".") ?><span></span>
                                     </small>
                                      <!-- Rating -->
                   <div class="product-rating">
